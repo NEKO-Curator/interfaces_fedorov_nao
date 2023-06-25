@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:interfaces_fedorov_coursework_nao/screens/image_screen/widgets/custom_button.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LinkWidget extends StatefulWidget {
