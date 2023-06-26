@@ -13,3 +13,4 @@ var drawerTextColor = const TextStyle(
   color: Color.fromARGB(255, 77, 76, 76),
 );
 var tilePadding = const EdgeInsets.only(left: 8.0, right: 8, top: 8);
+Color buttonMainColor = const Color(0xFF542437);

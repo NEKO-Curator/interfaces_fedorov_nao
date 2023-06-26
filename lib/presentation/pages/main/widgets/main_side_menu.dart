@@ -1,8 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/about/about.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/image_searcher_page.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/log_out_widget.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/main_gradient.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/presentation_constants.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/profile_image.dart';
 
 class MainSideMenuWidget extends StatefulWidget {
@@ -39,7 +42,7 @@ class _MainSideMenuWidgetState extends State<MainSideMenuWidget> {
                 decoration: const BoxDecoration(),
                 openSideMenuWidth: 220,
                 hoverColor: Colors.blue[100],
-                selectedColor: Colors.lightBlue,
+                selectedColor: buttonMainColor,
                 selectedIconColor: Colors.white,
                 unselectedIconColor: Colors.black54,
                 backgroundColor: Colors.grey,
@@ -69,8 +72,15 @@ class _MainSideMenuWidgetState extends State<MainSideMenuWidget> {
                   ),
                 ],
               ),
-              // Will show on bottom of SideMenu when displayMode was SideMenuDisplayMode.open
-              footer: const Text('demo'),
+              footer: const Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: Text(
+                  'FEDOROV S.A.',
+                  style: TextStyle(
+                    color: Colors.white54,
+                  ),
+                ),
+              ),
               // Notify when display mode changed
               onDisplayModeChanged: (mode) {
                 if (kDebugMode) {
@@ -86,18 +96,14 @@ class _MainSideMenuWidgetState extends State<MainSideMenuWidget> {
                     sideMenu.changePage(index);
                   },
                   icon: const Icon(Icons.home),
-                  // badgeContent: Text(
-                  //   '3',
-                  //   style: TextStyle(color: Colors.white),
-                  // ),
                 ),
                 SideMenuItem(
                   priority: 1,
-                  title: 'Настройки',
+                  title: 'О нас',
                   onTap: (index, _) {
                     sideMenu.changePage(index);
                   },
-                  icon: const Icon(Icons.settings),
+                  icon: const Icon(Icons.person),
                 ),
                 SideMenuItem(
                   priority: 2,
@@ -117,10 +123,10 @@ class _MainSideMenuWidgetState extends State<MainSideMenuWidget> {
                     child: ImageSearcherWidget(),
                   ),
                   Center(
-                    child: Text('2'),
+                    child: AboutPage(),
                   ),
                   Center(
-                    child: Text('3'),
+                    child: LogoutPlaceholderWidget(),
                   ),
                 ],
               ),

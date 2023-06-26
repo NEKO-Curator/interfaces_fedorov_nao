@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:interfaces_fedorov_coursework_nao/constants.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/links.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/presentation_constants.dart';
 
 class ImagePickerWebPage extends StatefulWidget {
   const ImagePickerWebPage({super.key});
@@ -82,7 +83,7 @@ class _ImagePickerWebPageState extends State<ImagePickerWebPage> {
                 height: 40,
                 width: 200,
                 child: MaterialButton(
-                  color: Colors.purple,
+                  color: buttonMainColor,
                   elevation: 8,
                   highlightElevation: 2,
                   shape: RoundedRectangleBorder(
@@ -107,7 +108,7 @@ class _ImagePickerWebPageState extends State<ImagePickerWebPage> {
                 height: 40,
                 width: 200,
                 child: MaterialButton(
-                  color: Colors.purple,
+                  color: buttonMainColor,
                   elevation: 8,
                   highlightElevation: 2,
                   shape: RoundedRectangleBorder(
