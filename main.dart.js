@@ -63815,7 +63815,7 @@ return A.Y(null,r)}})
 return A.Z($async$ul,r)},
 p_(){var s=0,r=A.a_(t.N),q,p=this,o,n,m,l,k
 var $async$p_=A.W(function(a,b){if(a===1)return A.X(b,r)
-while(true)switch(s){case 0:l=A.aop("POST",A.pj("http://195.140.146.196/api/v1/upload",0,null))
+while(true)switch(s){case 0:l=A.aop("POST",A.pj("https://hentai.ninja/api/v1/upload",0,null))
 k=p.d
 k.toString
 o=A.aof("image","jpeg")
