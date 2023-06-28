@@ -1,8 +1,4 @@
-import 'dart:io';
-
-import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/image_picker_android.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/image_picker_web.dart';
 
 class ImageSearcherWidget extends StatelessWidget {
@@ -10,13 +6,7 @@ class ImageSearcherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!kIsWeb && Platform.isAndroid) {
-      return const ImagePickerMobilePage();
-    } else if (kIsWeb) {
-      return const ImagePickerWebPage();
-    } else {
-      return Container();
-    }
+    return const ImagePickerWebPage();
   }
 }
 

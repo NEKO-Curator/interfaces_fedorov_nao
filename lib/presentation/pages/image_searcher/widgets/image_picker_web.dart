@@ -56,7 +56,6 @@ class _ImagePickerWebPageState extends State<ImagePickerWebPage> {
         contentType: MediaType('image', 'jpeg'), filename: "anyname.jpg"));
 
     var response = await request.send();
-
     if (response.statusCode == 200) {
       return await response.stream.bytesToString();
     } else {
