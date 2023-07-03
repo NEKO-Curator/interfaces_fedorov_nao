@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/image_picker_web.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/image_picker_android.dart';
 
 class ImageSearcherWidget extends StatelessWidget {
   const ImageSearcherWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const ImagePickerWebPage();
+    return const ImagePickerMobilePage();
   }
 }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/main_side_menu.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
