@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
+import 'package:interfaces_fedorov_coursework_nao/common/errors/exceptions.dart';
 import 'package:interfaces_fedorov_coursework_nao/common/utils/cert.dart';
 
 abstract class ImageSearcherRemoteData {
@@ -23,8 +24,7 @@ class ImageSearcherRemoteDataImpl implements ImageSearcherRemoteData {
     if (response.statusCode == 200) {
       return await response.stream.bytesToString();
     } else {
-      throw Exception(
-          'Server responded with status code ${response.statusCode}.');
+      throw ServerException('Response status code is ${response.statusCode}');
     }
   }
 
@@ -46,7 +46,7 @@ class ImageSearcherRemoteDataImpl implements ImageSearcherRemoteData {
     if (response.statusCode == 200) {
       return await response.stream.bytesToString();
     } else {
-      throw Exception('Failed to upload image');
+      throw ServerException('Response status code is ${response.statusCode}');
     }
   }
 }

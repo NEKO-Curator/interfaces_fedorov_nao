@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/about/about.dart';
@@ -83,9 +82,9 @@ class _MainSideMenuWidgetState extends State<MainSideMenuWidget> {
               ),
               // Notify when display mode changed
               onDisplayModeChanged: (mode) {
-                if (kDebugMode) {
-                  print(mode);
-                }
+                // if (kDebugMode) {
+                //   print(mode);
+                // }
               },
               // List of SideMenuItem to show them on SideMenu
               items: [

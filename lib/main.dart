@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/main_side_menu.dart';
 
+import 'common/utils/app_block_observer.dart';
+
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = AppBlockObserver();
   runApp(const MyApp());
 }
 

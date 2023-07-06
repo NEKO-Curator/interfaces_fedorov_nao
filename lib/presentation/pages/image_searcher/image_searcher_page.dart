@@ -14,6 +14,8 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/bloc/image_searcher_bloc.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/image_picker_web.dart';
 
 class ImageSearcherWidget extends StatefulWidget {
@@ -26,6 +28,9 @@ class ImageSearcherWidget extends StatefulWidget {
 class _ImageSearcherWidgetState extends State<ImageSearcherWidget> {
   @override
   Widget build(BuildContext context) {
-    return kIsWeb ? const ImagePickerWebPage() : Container();
+    return BlocProvider(
+      create: (context) => ImageSearcherBloc(),
+      child: kIsWeb ? const ImagePickerWebPage() : Container(),
+    );
   }
 }
