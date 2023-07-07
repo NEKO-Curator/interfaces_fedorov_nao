@@ -4,14 +4,14 @@ import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searc
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/image_searcher/widgets/links.dart';
 import 'package:interfaces_fedorov_coursework_nao/presentation/pages/main/widgets/presentation_constants.dart';
 
-class ImagePickerWebPage extends StatefulWidget {
-  const ImagePickerWebPage({super.key});
+class ImageSearcherWidget extends StatefulWidget {
+  const ImageSearcherWidget({super.key});
 
   @override
-  State<ImagePickerWebPage> createState() => _ImagePickerWebPageState();
+  State<ImageSearcherWidget> createState() => _ImageSearcherWidgetState();
 }
 
-class _ImagePickerWebPageState extends State<ImagePickerWebPage> {
+class _ImageSearcherWidgetState extends State<ImageSearcherWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ImageSearcherBloc, ImageSearcherState>(

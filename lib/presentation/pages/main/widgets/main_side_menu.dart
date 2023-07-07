@@ -119,7 +119,7 @@ class _MainSideMenuWidgetState extends State<MainSideMenuWidget> {
                 controller: pageController,
                 children: const [
                   Center(
-                    child: ImageSearcherWidget(),
+                    child: ImageSearcherPage(),
                   ),
                   Center(
                     child: AboutPage(),

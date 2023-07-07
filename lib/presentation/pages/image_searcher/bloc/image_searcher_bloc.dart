@@ -1,12 +1,13 @@
 // ignore_for_file: avoid_web_libraries_in_flutter
 
 import 'dart:async';
-import 'dart:convert';
-import 'dart:html' as html;
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:interfaces_fedorov_coursework_nao/data/datasources/image_picker/image_picker_stub.dart'
+    if (dart.library.io) 'package:interfaces_fedorov_coursework_nao/data/datasources/image_picker/image_picker_android.dart'
+    if (dart.library.html) 'package:interfaces_fedorov_coursework_nao/data/datasources/image_picker/image_picker_web.dart';
 import 'package:interfaces_fedorov_coursework_nao/data/datasources/image_searcher_remote.dart';
 
 part 'image_searcher_event.dart';
@@ -23,12 +24,17 @@ class ImageSearcherBloc extends Bloc<ImageSearcherEvent, ImageSearcherState> {
     try {
       // if (state.status == ImageSearchStatus.initial ||
       //     state.status == ImageSearchStatus.success) {
-      var selectedFile = await startWebFilePicker();
-      if (selectedFile == null) {
-        // Обрабатываем ошибку, если файл не был выбран
-        emit(state.copyWith(status: ImageSearchStatus.failure));
-        return;
+      List<int> selectedFile;
+      if (kIsWeb) {
+        selectedFile = await ImagePickerImpl().pickImage();
+      } else {
+        selectedFile = await ImagePickerImpl().pickImage();
       }
+      // if (selectedFile == null) {
+      //   // Обрабатываем ошибку, если файл не был выбран
+      //   emit(state.copyWith(status: ImageSearchStatus.failure));
+      //   return;
+      // }
       emit(state.copyWith(status: ImageSearchStatus.loading));
       String url = await ImageSearcherRemoteDataImpl()
           .uploadImageAndSearchWeb(selectedFile);
@@ -43,29 +49,5 @@ class ImageSearcherBloc extends Bloc<ImageSearcherEvent, ImageSearcherState> {
     } catch (_) {
       emit(state.copyWith(status: ImageSearchStatus.failure));
     }
-  }
-
-  Future<List<int>?> startWebFilePicker() async {
-    html.FileUploadInputElement uploadInput = html.FileUploadInputElement();
-    uploadInput.multiple = true;
-    uploadInput.draggable = true;
-    uploadInput.click();
-
-    final completer = Completer<List<int>?>();
-    uploadInput.onChange.listen((event) {
-      final files = uploadInput.files;
-      final file = files![0];
-      final reader = html.FileReader();
-
-      reader.onLoadEnd.listen((event) {
-        final bytesData = const Base64Decoder()
-            .convert(reader.result.toString().split(",").last);
-        final selectedFile = bytesData;
-        completer.complete(selectedFile);
-      });
-      reader.readAsDataUrl(file);
-    });
-
-    return completer.future;
   }
 }
